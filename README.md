@@ -40,7 +40,7 @@ function mostrarProducto() {
     let precio = document.getElementById("precio")
 
     if (producto === "refresco") {
-        imagen.src = "https://via.placeholder.com/150?text=Refresco"
+        imagen.src = "[https://via.placeholder.com/150?text=Refresco](https://unsplash.com/es/fotos/botella-de-coca-cola-al-lado-de-un-vaso-Qvnohn4GyJA)"
         precio.innerText = "Precio: $20"
     } 
     else if (producto === "papas") {
