@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Punto de Venta</title>
+</head>
+<body>
+
+<h1>Punto de Venta</h1>
+
+<h2>Descripción del giro</h2>
+<p>
+    Tienda de abarrotes dedicada a la venta de productos básicos como alimentos,
+    bebidas y artículos de uso diario.
+</p>
+
+<h2>Selecciona un producto</h2>
+<select onchange="mostrarProducto()" id="producto">
+    <option value="">Selecciona</option>
+    <option value="refresco">Refresco</option>
+    <option value="papas">Papas</option>
+    <option value="galletas">Galletas</option>
+</select>
+
+<h2>Producto</h2>
+<img id="imagen" width="150"><br><br>
+<p id="precio"></p>
+
+<button onclick="comprar()">Comprar</button>
+
+<h2>Ticket</h2>
+<div id="ticket"></div>
+<br>
+<button onclick="window.print()">Imprimir ticket</button>
+
+<script>
+function mostrarProducto() {
+    let producto = document.getElementById("producto").value
+    let imagen = document.getElementById("imagen")
+    let precio = document.getElementById("precio")
+
+    if (producto === "refresco") {
+        imagen.src = "https://via.placeholder.com/150?text=Refresco"
+        precio.innerText = "Precio: $20"
+    } 
+    else if (producto === "papas") {
+        imagen.src = "https://via.placeholder.com/150?text=Papas"
+        precio.innerText = "Precio: $15"
+    } 
+    else if (producto === "galletas") {
+        imagen.src = "https://via.placeholder.com/150?text=Galletas"
+        precio.innerText = "Precio: $10"
+    } 
+    else {
+        imagen.src = ""
+        precio.innerText = ""
+    }
+}
+
+function comprar() {
+    let producto = document.getElementById("producto").value
+    let ticket = document.getElementById("ticket")
+
+    if (producto === "") {
+        ticket.innerText = "Selecciona un producto"
+        return
+    }
+
+    let precios = {
+        refresco: 20,
+        papas: 15,
+        galletas: 10
+    }
+
+    ticket.innerHTML = 
+        "Producto: " + producto +
+        "<br>Total: $" + precios[producto]
+}
+</script>
+
+</body>
+</html>
